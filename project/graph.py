@@ -1,8 +1,8 @@
 import cfpq_data
 import networkx as nx
 
-from dataclasses import dataclass
 from typing import *
+from dataclasses import dataclass
 
 @dataclass
 class Graph:
@@ -34,12 +34,17 @@ def execute_graph(
     second_cycle: int,
     labels: Tuple[str, str],
     path: str,
-):
+) -> nx.MultiDiGraph:
     graph = cfpq_data.labeled_two_cycles_graph(
-        first_cycle = first_cycle,
-        second_cycle = second_cycle,
+        first_cycle,
+        second_cycle,
         labels = labels,
     )
+    if path:
+        save_graph(graph, path)
 
-    graph_dot = nx.nx_pydot.to_pydot(graph)
-    graph_dot.write(path)
+    return graph
+
+
+def save_graph(graph: nx.MultiDiGraph, dot_path: str) -> None:
+    nx.nx_pydot.write_dot(graph, dot_path)

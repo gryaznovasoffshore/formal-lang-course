@@ -28,7 +28,7 @@ def test_get_graph_info(graph_name):
         "expected_graph_path",
     ],
     [
-        (3, 2, ("a", "b"), "tests/test_data/graph_tests/first_graph.dot"),
+        (3, 2, ("test_m_1", "test_m_2"), "tests/test_data/graph_tests/first_graph.dot"),
         (4, 4, ("label=test_m_1", "label=test_m_2"), "tests/test_data/graph_tests/second_graph.dot"),
     ],
 )
