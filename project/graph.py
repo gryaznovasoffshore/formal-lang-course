@@ -36,8 +36,8 @@ def execute_graph(
     path: str,
 ):
     graph = cfpq_data.labeled_two_cycles_graph(
-        a = first_cycle,
-        b = second_cycle,
+        first_cycle = first_cycle,
+        second_cycle = second_cycle,
         labels = labels,
     )
 
